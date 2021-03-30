@@ -1,0 +1,19 @@
+{% extends 'base_template.html' %}
+{% block title  %}Homepage - Bobby's Clone of Pastebin.com{% endblock %}
+{% block content  %}
+<h1 align="center" class="display-4">Welcome to the world of pastes</h1>
+<br>
+<p><strong>Here you can find the latest pastes:</strong></p>
+<br>
+<div class="list-group">
+    {% for paste in object_list %}
+      <a class="list-group-item list-group-item-action flex-column align-items-start" href="{% url 'pastes:display' paste.slug %}">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ paste.title }}</h5>
+          <small>created by {{ paste.author }} on {{ paste.date }}</small>
+        </div>
+        <p class="mb-1">{{ paste.content }}</p>
+      </a>
+    {% endfor %}
+</div>
+{% endblock %}

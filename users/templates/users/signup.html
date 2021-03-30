@@ -1,0 +1,43 @@
+{% extends 'base_template.html' %}
+{% block title  %}Sign Up User{% endblock %}
+{% block content  %}
+<br>
+<form method="POST">
+	{%csrf_token%}
+	<p>Username</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="username">
+		<small class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+	</div>
+	<p>Email</p>
+	<div class="form-group">
+		<input type="email" class="form-control" name="email">
+	</div>
+	<p>First name</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="first_name">
+	</div>
+	<p>Last name</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="last_name">
+	</div>
+	<p>Password</p>
+	<div class="form-group">
+		<input type="password" class="form-control" name="password1">
+		<small class="form-text text-muted">
+			<ul>
+				<li>Your password can’t be too similar to your other personal information.</li>
+				<li>Your password must contain at least 8 characters.</li>
+				<li>Your password can’t be a commonly used password.</li>
+				<li>Your password can’t be entirely numeric.</li>
+			</ul>
+		</small>
+	</div>
+	<p>Password confirmation</p>
+	<div class="form-group">
+		<input type="password" class="form-control" name="password2">
+		<small class="form-text text-muted">Enter the same password as before, for verification.</small>
+	</div>
+	<button type="submit" class="btn btn-success">Sign Up</button>
+</form>	
+{% endblock %}

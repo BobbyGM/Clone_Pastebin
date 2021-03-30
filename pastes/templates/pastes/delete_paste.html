@@ -1,0 +1,10 @@
+{% extends 'base_template.html' %}
+{% block title  %}Delete Paste{% endblock %}
+{% block content  %}
+<br>
+<form method="POST">
+	{% csrf_token %}
+	<p>Do you really want to delete the <strong> {{ paste.title }} </strong> paste?</P>
+	<button type="submit" class="btn btn-danger">Delete</button>
+</form>	
+{% endblock %}

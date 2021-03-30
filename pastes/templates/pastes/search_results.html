@@ -1,0 +1,22 @@
+{% extends 'base_template.html' %}
+{% block title  %}Search Results Page{% endblock %}
+{% block content  %}
+<br>
+<p><strong>Here you can find the search results:</strong></p>
+<br>
+{% if object_list %}
+    <div class="list-group">
+        {% for paste in object_list %}
+          <a class="list-group-item list-group-item-action flex-column align-items-start" href="{% url 'pastes:display' paste.slug %}">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ paste.title }}</h5>
+              <small>created by {{ paste.author }} on {{ paste.date }}</small>
+            </div>
+            <p class="mb-1">{{ paste.content }}</p>
+          </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>There are 0 results...</p>
+{% endif %}
+{% endblock %}

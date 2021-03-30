@@ -1,0 +1,17 @@
+{% extends 'base_template.html' %}
+{% block title  %}Display User{% endblock %}
+{% block content  %}
+<br>
+<p>First name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<div class="form-inline">
+    <form action="{% url 'users:update' user.pk %}">
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+    <form action="{% url 'users:delete' user.pk %}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock %}

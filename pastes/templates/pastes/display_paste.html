@@ -1,0 +1,18 @@
+{% extends 'base_template.html' %}
+{% block title  %}Display Paste{% endblock %}
+{% block content  %}
+<br>
+<p>Title: <strong>{{ paste.title }}</strong></p>
+<p>Content: {{ paste.content }}</p>
+<p>created by {{ paste.author }} on {{ paste.date }}</p>
+{% if paste.author == user %}
+    <div class="form-inline">
+        <form action="{% url 'pastes:update' paste.slug %}">
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+        <form action="{% url 'pastes:delete' paste.slug %}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+{% endif %}
+{% endblock %}

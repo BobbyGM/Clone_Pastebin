@@ -1,0 +1,28 @@
+{% extends 'base_template.html' %}
+{% block title  %}Update User{% endblock %}
+{% block content  %}
+<br>
+<form method="POST">
+	{% csrf_token %}
+	<p>Username</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="username" value="{{user.username}}">
+		<small class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+	</div>
+	<p>Email</p>
+	<div class="form-group">
+		<input type="email" class="form-control" name="email" value="{{user.email}}" required>
+	</div>
+	<p>First name</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
+	</div>
+	<p>Last name</p>
+	<div class="form-group">
+		<input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
+	</div>
+	<p>Click <a href="../password/">here</a> if you want to change your password</p>
+	<br>
+	<button type="submit" class="btn btn-success">Update</button>
+</form>	
+{% endblock %}

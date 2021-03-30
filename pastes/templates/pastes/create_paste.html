@@ -1,0 +1,10 @@
+{% extends 'base_template.html' %}
+{% block title  %}Create Paste{% endblock %}
+{% block content  %}
+<br>
+<form method="POST">
+	{%csrf_token%}
+	{{ form.as_p }}
+	<button type="submit" class="btn btn-info">Create</button>
+</form>	
+{% endblock %}
